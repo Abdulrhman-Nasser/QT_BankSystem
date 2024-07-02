@@ -28,10 +28,19 @@ void MyServerHandler::Operations(QString str,QString Type)
 
     if(Type == "Login")
     {
-        QStringList list = str.split('\n');
-        QString username = list[0];
-        QString pass = list[1];
-        Login(username,pass.toInt());
+        // QStringList list = str.split('\n');
+        // QString username = list[0];
+        // QString pass = list[1];
+        QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
+        QJsonObject jsonobjLogin = doc.object();
+        QString username = jsonobjLogin["UserName"].toString();
+        QString pass = jsonobjLogin["Password"].toString();
+        bool check;
+        pass.toInt(&check);
+        if(check)
+            Login(username,pass.toInt());
+        else
+            sendMessage("Invalid Password","Error");
     }
     else if(Type == "SignOut")
     {
@@ -46,7 +55,9 @@ void MyServerHandler::Operations(QString str,QString Type)
                 jsonobj["Available"] = true;
                 jsonarr[i]=jsonobj;
                 LoginData.writeFile(jsonarr);
-                break;
+                name.clear();
+                pass=0;
+                return;
             }
         }
     }
