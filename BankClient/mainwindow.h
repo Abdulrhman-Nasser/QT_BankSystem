@@ -27,6 +27,12 @@ public slots:
 private slots:
     void on_pb_Login_clicked();
 
+    void on_pb_signoutadmin_clicked();
+
+    void on_pb_signoutuser_clicked();
+
+    void on_pb_signup_clicked();
+
 private:
     Ui::MainWindow *ui;
     MyClient client;

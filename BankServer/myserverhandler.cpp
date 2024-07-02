@@ -28,9 +28,6 @@ void MyServerHandler::Operations(QString str,QString Type)
 
     if(Type == "Login")
     {
-        // QStringList list = str.split('\n');
-        // QString username = list[0];
-        // QString pass = list[1];
         QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
         QJsonObject jsonobjLogin = doc.object();
         QString username = jsonobjLogin["UserName"].toString();
@@ -40,7 +37,7 @@ void MyServerHandler::Operations(QString str,QString Type)
         if(check)
             Login(username,pass.toInt());
         else
-            sendMessage("Invalid Password","Error");
+            sendMessage("Invalid Password!","Error");
     }
     else if(Type == "SignOut")
     {
@@ -61,107 +58,130 @@ void MyServerHandler::Operations(QString str,QString Type)
             }
         }
     }
-    else if(Type == "GetDataBase")
-    {
-        QJsonArray jsonarr = ProductsDB.readFile();
-        QJsonDocument doc;
-        doc.setArray(jsonarr);
-        QString data(doc.toJson());
-        sendMessage(data,"Data");
-    }
-    else if(Type ==  "CheckOut")
-    {
-        QJsonArray jsonarr=LoginData.readFile();
-        QString city;
-        QString gov;
-        QString dis;
-        QString building;
-        QString apt;
-        QString email;
-        qint32 number;
-        for(int i=0 ; i<jsonarr.size();i++)
-        {
-            QJsonObject jsonobj= jsonarr[i].toObject();
-            QString user = jsonobj["UserName"].toString();
-            qint32 password = jsonobj["Password"].toInt();
-            QString Authority = jsonobj["Auth"].toString();
-            if(user == name && this->pass == password)
-            {
-                city = jsonobj["City"].toString();
-                gov = jsonobj["Governorate"].toString();
-                dis = jsonobj["District"].toString();
-                building = jsonobj["Building no."].toString();
-                apt = jsonobj["Apt no."].toString();
-                email = jsonobj["Email"].toString();
-                number = jsonobj["Phone Number"].toInt();
-                QString data=city+"\n"+gov+"\n"+dis+"\n"+building+"\n"+apt+"\n"+email+"\n"+QString::number(number);
-                qDebug()<<data;
-                if(data=="\n\n\n\n\n\n0")
-                {
-                    sendMessage("No Address Found","Error");
-                    return;
-                }
-            }
 
-        }
-
-        QJsonArray jsonarrproducts = ProductsDB.readFile();
-        QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
-        QJsonArray jsonarrcheckout = doc.array();
-        // Iterate through each item in the checkout array
-        for (int i =0 ; i<jsonarrcheckout.size() ; i++) {
-            QJsonObject checkoutObject= jsonarrcheckout[i].toObject();
-            qDebug()<<"Before => "<<checkoutObject["id"].toInt();
-            qint32 checkoutId = checkoutObject["id"].toInt();
-            qint32 checkoutQuantity = checkoutObject["quantity"].toInt();
-
-            // Find the corresponding item in the product array by id
-            for (int i = 0; i < jsonarrproducts.size(); ++i) {
-                QJsonObject productObject = jsonarrproducts[i].toObject();
-                if (productObject["id"] == checkoutId) {
-                    // Subtract the quantity
-                    int productQuantity = productObject["quantity"].toInt();
-                    qDebug()<<"product quantity => "<<productQuantity;
-                    productObject["quantity"] = productQuantity - checkoutQuantity;
-                    // Update the product array with the modified object
-                    jsonarrproducts[i] = productObject;
-                    break;
-                }
-            }
-        }
-        ProductsDB.writeFile(jsonarrproducts);
-        sendMessage("","SuccessCheckout");
-
-    }
     //  Signup
     else if(Type ==  "Signup")
     {
-        QStringList list = str.split('\n');
-        QString username = list[0];
-        QString pass = list[1];
-        QJsonArray jsonarr=LoginData.readFile();
-        for(int i=0 ; i<jsonarr.size();i++)
+        QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
+        QJsonObject jsonobjLogin = doc.object();
+        QString username = jsonobjLogin["UserName"].toString();
+        QString pass = jsonobjLogin["Password"].toString();
+        bool check;
+        pass.toInt(&check);
+        if(check)
         {
-            QJsonObject jsonobj= jsonarr[i].toObject();
-            QString user = jsonobj["UserName"].toString();
-            qint32 password = jsonobj["Password"].toInt();
-            QString Authority = jsonobj["Auth"].toString();
-            if(user == username && pass.toInt() == password)
+            QJsonArray jsonarr=LoginData.readFile();
+            qint32 accountNumber = QRandomGenerator::global()->bounded(1000, 10000);
+            for(int i=0 ; i<jsonarr.size();i++)
             {
-                sendMessage("User already exists!","Error");
-                return;
+                QJsonObject jsonobj= jsonarr[i].toObject();
+                QString user = jsonobj["UserName"].toString();
+                qint32 password = jsonobj["Password"].toInt();
+                if(user == username && pass.toInt() == password)
+                {
+                    sendMessage("User already exists!","Error");
+                    return;
+                }
+                if(accountNumber == jsonobj["Account Number"].toInt())
+                {
+                    accountNumber = QRandomGenerator::global()->bounded(1000, 10000);
+                    i=0;
+                }
             }
+            QJsonObject jsonObject;
+            jsonObject["Auth"] = "User";
+            jsonObject["Password"] = pass.toInt();
+            jsonObject["UserName"] = username;
+            jsonObject["Account Number"] = accountNumber;
+            jsonObject["Available"] = false;
+            jsonarr.append(jsonObject);
+            LoginData.writeFile(jsonarr);
+            name = username;
+            this->pass=pass.toInt();
+            sendMessage("User","SuccessLogin");
         }
-        QJsonObject jsonObject;
-        jsonObject["Auth"] = "User";
-        jsonObject["Password"] = pass.toInt();
-        jsonObject["UserName"] = username;
-        jsonarr.append(jsonObject);
-        LoginData.writeFile(jsonarr);
-        name = username;
-        this->pass=pass.toInt();
-        sendMessage("User","SuccessLogin");
+        else
+            sendMessage("Invalid Password!","Error");
     }
+
+
+
+    // else if(Type == "GetDataBase")
+    // {
+    //     QJsonArray jsonarr = ProductsDB.readFile();
+    //     QJsonDocument doc;
+    //     doc.setArray(jsonarr);
+    //     QString data(doc.toJson());
+    //     sendMessage(data,"Data");
+    // }
+
+
+
+    // else if(Type ==  "CheckOut")
+    // {
+    //     QJsonArray jsonarr=LoginData.readFile();
+    //     QString city;
+    //     QString gov;
+    //     QString dis;
+    //     QString building;
+    //     QString apt;
+    //     QString email;
+    //     qint32 number;
+    //     for(int i=0 ; i<jsonarr.size();i++)
+    //     {
+    //         QJsonObject jsonobj= jsonarr[i].toObject();
+    //         QString user = jsonobj["UserName"].toString();
+    //         qint32 password = jsonobj["Password"].toInt();
+    //         QString Authority = jsonobj["Auth"].toString();
+    //         if(user == name && this->pass == password)
+    //         {
+    //             city = jsonobj["City"].toString();
+    //             gov = jsonobj["Governorate"].toString();
+    //             dis = jsonobj["District"].toString();
+    //             building = jsonobj["Building no."].toString();
+    //             apt = jsonobj["Apt no."].toString();
+    //             email = jsonobj["Email"].toString();
+    //             number = jsonobj["Phone Number"].toInt();
+    //             QString data=city+"\n"+gov+"\n"+dis+"\n"+building+"\n"+apt+"\n"+email+"\n"+QString::number(number);
+    //             qDebug()<<data;
+    //             if(data=="\n\n\n\n\n\n0")
+    //             {
+    //                 sendMessage("No Address Found","Error");
+    //                 return;
+    //             }
+    //         }
+
+    //     }
+
+    //     QJsonArray jsonarrproducts = ProductsDB.readFile();
+    //     QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
+    //     QJsonArray jsonarrcheckout = doc.array();
+    //     // Iterate through each item in the checkout array
+    //     for (int i =0 ; i<jsonarrcheckout.size() ; i++) {
+    //         QJsonObject checkoutObject= jsonarrcheckout[i].toObject();
+    //         qDebug()<<"Before => "<<checkoutObject["id"].toInt();
+    //         qint32 checkoutId = checkoutObject["id"].toInt();
+    //         qint32 checkoutQuantity = checkoutObject["quantity"].toInt();
+
+    //         // Find the corresponding item in the product array by id
+    //         for (int i = 0; i < jsonarrproducts.size(); ++i) {
+    //             QJsonObject productObject = jsonarrproducts[i].toObject();
+    //             if (productObject["id"] == checkoutId) {
+    //                 // Subtract the quantity
+    //                 int productQuantity = productObject["quantity"].toInt();
+    //                 qDebug()<<"product quantity => "<<productQuantity;
+    //                 productObject["quantity"] = productQuantity - checkoutQuantity;
+    //                 // Update the product array with the modified object
+    //                 jsonarrproducts[i] = productObject;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     ProductsDB.writeFile(jsonarrproducts);
+    //     sendMessage("","SuccessCheckout");
+
+    // }
+
     //  Address save
     else if(Type ==  "Save_Address")
     {
