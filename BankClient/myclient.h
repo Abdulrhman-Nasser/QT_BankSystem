@@ -21,9 +21,7 @@ public:
 signals:
     void LoginSuccess(QString);
     void LoginError(QString);
-    // void ProductsUpdate(QString);
-    // void addressUpdate(QString);
-    // void CheckoutSuccess(QString);
+    void ReceiveAccNum(QString);
 private slots:
     // void onConnection();
     // void onDisconnection();

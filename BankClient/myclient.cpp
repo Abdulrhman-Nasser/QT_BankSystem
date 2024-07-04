@@ -83,6 +83,10 @@ void MyClient::onReadyRead()
         {
             emit LoginError(realData);
         }
+        else if(Type == "AccNum")
+        {
+            emit ReceiveAccNum(realData);
+        }
         // else if (Type == "Data")
         // {
         //     emit ProductsUpdate(realData);

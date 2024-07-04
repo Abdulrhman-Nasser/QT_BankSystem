@@ -104,6 +104,32 @@ void MyServerHandler::Operations(QString str,QString Type)
             sendMessage("Invalid Password!","Error");
     }
 
+    else if(Type == "GetAccNum")
+    {
+        if (str.isEmpty())
+        {
+            QJsonArray jsonarr=LoginData.readFile();
+            for(int i=0 ; i<jsonarr.size();i++)
+            {
+                QJsonObject jsonobj= jsonarr[i].toObject();
+                QString user = jsonobj["UserName"].toString();
+                qint32 password = jsonobj["Password"].toInt();
+                QString Authority = jsonobj["Auth"].toString();
+                bool available = jsonobj["Available"].toBool();
+                if(user == name && pass == password)
+                {
+                    sendMessage(QString::number(jsonobj["Account Number"].toInt()),"AccNum");
+                    return;
+                }
+            }
+            sendMessage("Account not found!","Error");
+        }
+        else
+        {
+
+        }
+    }
+
 
 
     // else if(Type == "GetDataBase")

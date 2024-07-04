@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Page0_login">
        <widget class="QLineEdit" name="LE_Loginpass">
@@ -103,6 +103,32 @@
          <string>Signout</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pb_accNumUser">
+        <property name="geometry">
+         <rect>
+          <x>352</x>
+          <y>140</y>
+          <width>121</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Account Number</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="L_UserAcc">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>130</y>
+          <width>201</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -114,7 +140,7 @@
      <x>0</x>
      <y>0</y>
      <width>741</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

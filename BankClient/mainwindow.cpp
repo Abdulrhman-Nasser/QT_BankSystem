@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     connect(&client,&MyClient::LoginError,this,&MainWindow::Error);
     connect(&client,&MyClient::LoginSuccess,this,&MainWindow::SuccessLogin);
-    client.ConnectToDevice("192.168.1.2",1234);
+    connect(&client,&MyClient::ReceiveAccNum,this,&MainWindow::AccountNum);
+    client.ConnectToDevice("192.168.153.158",1234);
 }
 
 MainWindow::~MainWindow()
@@ -34,6 +35,11 @@ void MainWindow::Error(QString data)
     QMessageBox::critical(nullptr, "Error", data);
 }
 
+void MainWindow::AccountNum(QString num)
+{
+    ui->L_UserAcc->setText(num);
+}
+
 void MainWindow::on_pb_Login_clicked()
 {
     QJsonObject jsonobj;
@@ -56,6 +62,9 @@ void MainWindow::on_pb_signoutadmin_clicked()
 {
     client.WriteData("","SignOut");
     ui->stackedWidget->setCurrentIndex(0);
+    ui->LE_Loginpass->clear();
+    ui->LE_Loginuser->clear();
+    ui->L_UserAcc->clear();
 }
 
 
@@ -63,6 +72,9 @@ void MainWindow::on_pb_signoutuser_clicked()
 {
     client.WriteData("","SignOut");
     ui->stackedWidget->setCurrentIndex(0);
+    ui->LE_Loginpass->clear();
+    ui->LE_Loginuser->clear();
+    ui->L_UserAcc->clear();
 }
 
 
@@ -81,5 +93,11 @@ void MainWindow::on_pb_signup_clicked()
     QJsonDocument jsondoc(jsonobj);
     QString data = jsondoc.toJson(QJsonDocument::Compact);
     client.WriteData(data,"Signup");
+}
+
+
+void MainWindow::on_pb_accNumUser_clicked()
+{
+    client.WriteData("","GetAccNum");
 }
 
