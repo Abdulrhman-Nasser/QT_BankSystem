@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::LoginError,this,&MainWindow::Error);
     connect(&client,&MyClient::LoginSuccess,this,&MainWindow::SuccessLogin);
     connect(&client,&MyClient::ReceiveAccNum,this,&MainWindow::AccountNum);
+    connect(&client,&MyClient::ReceiveAccNums,this,&MainWindow::AccountNums);
     client.ConnectToDevice("192.168.153.158",1234);
 }
 
@@ -40,6 +41,11 @@ void MainWindow::AccountNum(QString num)
     ui->L_UserAcc->setText(num);
 }
 
+void MainWindow::AccountNums(QString nums)
+{
+    ui->L_AdminAcc->setText(nums);
+}
+
 void MainWindow::on_pb_Login_clicked()
 {
     QJsonObject jsonobj;
@@ -64,7 +70,8 @@ void MainWindow::on_pb_signoutadmin_clicked()
     ui->stackedWidget->setCurrentIndex(0);
     ui->LE_Loginpass->clear();
     ui->LE_Loginuser->clear();
-    ui->L_UserAcc->clear();
+    ui->L_AdminAcc->clear();
+    ui->LE_accNum->clear();
 }
 
 
@@ -99,5 +106,17 @@ void MainWindow::on_pb_signup_clicked()
 void MainWindow::on_pb_accNumUser_clicked()
 {
     client.WriteData("","GetAccNum");
+}
+
+
+void MainWindow::on_pb_accNumAdmin_clicked()
+{
+    QString accName = ui->LE_accNum->text();
+    if(accName.isEmpty())
+    {
+        QMessageBox::critical(nullptr,"Error","Enter account name");
+        return;
+    }
+    client.WriteData(accName,"GetAccNum");
 }
 

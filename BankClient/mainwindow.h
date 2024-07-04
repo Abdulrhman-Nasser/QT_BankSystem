@@ -24,6 +24,7 @@ public slots:
     void SuccessLogin(QString);
     void Error(QString);
     void AccountNum(QString);
+    void AccountNums(QString);
 
 private slots:
     void on_pb_Login_clicked();
@@ -35,6 +36,8 @@ private slots:
     void on_pb_signup_clicked();
 
     void on_pb_accNumUser_clicked();
+
+    void on_pb_accNumAdmin_clicked();
 
 private:
     Ui::MainWindow *ui;

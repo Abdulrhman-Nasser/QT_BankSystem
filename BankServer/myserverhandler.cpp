@@ -106,16 +106,15 @@ void MyServerHandler::Operations(QString str,QString Type)
 
     else if(Type == "GetAccNum")
     {
+        qDebug()<<"Test2";
+        QJsonArray jsonarr=LoginData.readFile();
         if (str.isEmpty())
         {
-            QJsonArray jsonarr=LoginData.readFile();
             for(int i=0 ; i<jsonarr.size();i++)
             {
                 QJsonObject jsonobj= jsonarr[i].toObject();
                 QString user = jsonobj["UserName"].toString();
                 qint32 password = jsonobj["Password"].toInt();
-                QString Authority = jsonobj["Auth"].toString();
-                bool available = jsonobj["Available"].toBool();
                 if(user == name && pass == password)
                 {
                     sendMessage(QString::number(jsonobj["Account Number"].toInt()),"AccNum");
@@ -126,6 +125,27 @@ void MyServerHandler::Operations(QString str,QString Type)
         }
         else
         {
+            QString accNums;
+            qDebug()<<"Test3";
+            for(int i=0 ; i<jsonarr.size();i++)
+            {
+                QJsonObject jsonobj= jsonarr[i].toObject();
+                QString user = jsonobj["UserName"].toString();
+                QString Authority = jsonobj["Auth"].toString();
+                if(user == str && Authority=="User")
+                {
+                    accNums.append(QString::number(jsonobj["Account Number"].toInt()));
+                    accNums.append("\n");
+                }
+            }
+            if(accNums.isEmpty())
+            {
+                qDebug()<<"Test4";
+              sendMessage("Account not found!","Error");
+            return;
+            }
+            qDebug()<<"Test1";
+            sendMessage(accNums,"AccNumAdmin");
 
         }
     }

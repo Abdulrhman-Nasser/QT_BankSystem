@@ -87,6 +87,10 @@ void MyClient::onReadyRead()
         {
             emit ReceiveAccNum(realData);
         }
+        else if(Type == "AccNumAdmin")
+        {
+            emit ReceiveAccNums(realData);
+        }
         // else if (Type == "Data")
         // {
         //     emit ProductsUpdate(realData);

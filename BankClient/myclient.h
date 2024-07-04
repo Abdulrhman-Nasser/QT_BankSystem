@@ -22,6 +22,7 @@ signals:
     void LoginSuccess(QString);
     void LoginError(QString);
     void ReceiveAccNum(QString);
+    void ReceiveAccNums(QString);
 private slots:
     // void onConnection();
     // void onDisconnection();
