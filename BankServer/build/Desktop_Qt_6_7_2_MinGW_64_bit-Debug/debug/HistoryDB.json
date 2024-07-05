@@ -1,0 +1,72 @@
+[
+    {
+        "Account Number": 6017,
+        "UserName": "Khaled",
+        "transactions": [
+            {
+                "Amount": 100,
+                "date": "02/09/2023"
+            },
+            {
+                "Amount": -200,
+                "date": "01/09/2023"
+            },
+            {
+                "Amount": -200,
+                "To/From": 3618,
+                "date": "01/09/2023"
+            },
+            {
+                "Amount": 10,
+                "date": "05/07/2024"
+            },
+            {
+                "Amount": 100,
+                "date": "05/07/2024"
+            },
+            {
+                "Amount": -100,
+                "date": "05/07/2024"
+            },
+            {
+                "Amount": -100,
+                "To/From": 3618,
+                "date": "05/07/2024"
+            }
+        ]
+    },
+    {
+        "Account Number": 3618,
+        "UserName": "Ahmed",
+        "transactions": [
+            {
+                "Amount": 150,
+                "date": "02/09/2023"
+            },
+            {
+                "Amount": -50,
+                "date": "01/09/2023"
+            },
+            {
+                "Amount": 200,
+                "To/From": 6017,
+                "date": "01/09/2023"
+            },
+            {
+                "Amount": 100,
+                "To/From": 6017,
+                "date": "05/07/2024"
+            }
+        ]
+    },
+    {
+        "Account Number": 4821,
+        "UserName": "Ehab",
+        "transactions": [
+            {
+                "Amount": 10,
+                "date": "05/07/2024"
+            }
+        ]
+    }
+]

@@ -23,6 +23,9 @@ signals:
     void LoginError(QString);
     void ReceiveAccNum(QString);
     void ReceiveAccNums(QString);
+    void Balance(QString);
+    void History(QString);
+    void success(QString);
 private slots:
     // void onConnection();
     // void onDisconnection();

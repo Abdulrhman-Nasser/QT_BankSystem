@@ -15,6 +15,8 @@
         "Account Number": 6017,
         "Auth": "User",
         "Available": true,
+        "Balance": 1063,
+        "Name": "Khaled Mohammed",
         "Password": 5678,
         "UserName": "Khaled"
     },
@@ -22,6 +24,8 @@
         "Account Number": 3618,
         "Auth": "User",
         "Available": true,
+        "Balance": 4632,
+        "Name": "Ahmed Taha",
         "Password": 91011,
         "UserName": "Ahmed"
     },
@@ -29,6 +33,8 @@
         "Account Number": 4821,
         "Auth": "User",
         "Available": true,
+        "Balance": 151553,
+        "Name": "Ehab Saleh",
         "Password": 1234,
         "UserName": "Ehab"
     },
@@ -36,6 +42,8 @@
         "Account Number": 7467,
         "Auth": "User",
         "Available": true,
+        "Balance": 171278,
+        "Name": "Ahmed Mohammed",
         "Password": 8888,
         "UserName": "Ahmed"
     }

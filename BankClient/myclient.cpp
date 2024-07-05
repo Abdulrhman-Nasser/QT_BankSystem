@@ -91,6 +91,18 @@ void MyClient::onReadyRead()
         {
             emit ReceiveAccNums(realData);
         }
+        else if (Type == "Balance")
+        {
+            emit Balance(realData);
+        }
+        else if(Type == "History")
+        {
+            emit History(realData);
+        }
+        else if(Type == "Success")
+        {
+            emit success(realData);
+        }
         // else if (Type == "Data")
         // {
         //     emit ProductsUpdate(realData);

@@ -25,7 +25,9 @@ public slots:
     void Error(QString);
     void AccountNum(QString);
     void AccountNums(QString);
-
+    void GetBalance(QString);
+    void GetHistory(QString);
+    void Success(QString);
 private slots:
     void on_pb_Login_clicked();
 
@@ -39,7 +41,23 @@ private slots:
 
     void on_pb_accNumAdmin_clicked();
 
+    void on_pb_UserHome_clicked();
+
+    void on_pb_UserHistory_clicked();
+
+    void on_pb_UserTransaction_clicked();
+
+    void on_pb_UserBalance_clicked();
+
+    void on_pb_UserHistory_2_clicked();
+
+    void on_pb_UserTransaction_2_clicked();
+
+    void on_pb_UserTransfer_clicked();
+
 private:
+    void setColor(QString BackColor,QString textColor);
+    void ClearText();
     Ui::MainWindow *ui;
     MyClient client;
 };

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
-    <height>520</height>
+    <width>719</width>
+    <height>503</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Page0_login">
        <widget class="QLineEdit" name="LE_Loginpass">
@@ -126,44 +126,214 @@
        </widget>
       </widget>
       <widget class="QWidget" name="Page2_user">
-       <widget class="QPushButton" name="pb_signoutuser">
+       <widget class="QLabel" name="L_background">
         <property name="geometry">
          <rect>
-          <x>290</x>
-          <y>290</y>
-          <width>80</width>
-          <height>24</height>
+          <x>0</x>
+          <y>0</y>
+          <width>281</width>
+          <height>461</height>
          </rect>
         </property>
-        <property name="text">
-         <string>Signout</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pb_accNumUser">
-        <property name="geometry">
-         <rect>
-          <x>352</x>
-          <y>140</y>
-          <width>121</width>
-          <height>29</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Account Number</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="L_UserAcc">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>130</y>
-          <width>201</width>
-          <height>41</height>
-         </rect>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
         </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>281</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="pb_UserHome">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Home</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="pb_UserHistory">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>History</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="pb_UserTransaction">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Transaction</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pb_signoutuser">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Signout</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QStackedWidget" name="SW_User">
+        <property name="geometry">
+         <rect>
+          <x>289</x>
+          <y>19</y>
+          <width>411</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <widget class="QWidget" name="Page1_Home">
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="L_UserAcc">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pb_accNumUser">
+              <property name="text">
+               <string>Account Number</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="L_UserBalance">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pb_UserBalance">
+              <property name="text">
+               <string>Balance</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="Page2_History">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0" colspan="2">
+           <widget class="QListWidget" name="LW_UserHistory"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="LE_UserHistoryCount">
+            <property name="placeholderText">
+             <string>Count </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pb_UserHistory_2">
+            <property name="text">
+             <string>View History</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="Page3_Transactions">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pb_UserTransaction_2">
+            <property name="text">
+             <string>Transaction</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLineEdit" name="LE_UserTransaction">
+            <property name="placeholderText">
+             <string>Amount</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="pb_UserTransfer">
+            <property name="text">
+             <string>Transfer</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="LE_UserTransferToAccName">
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Receiving Account Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="LE_UserTransferAmount">
+            <property name="placeholderText">
+             <string>Amount</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </widget>
      </widget>
@@ -175,13 +345,30 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>741</width>
-     <height>25</height>
+     <width>719</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LW_UserHistory</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>504</x>
+     <y>445</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>423</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
