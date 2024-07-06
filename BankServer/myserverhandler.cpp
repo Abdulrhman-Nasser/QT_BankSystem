@@ -68,43 +68,41 @@ void MyServerHandler::Operations(QString str,QString Type)
         QJsonObject jsonobjLogin = doc.object();
         QString username = jsonobjLogin["UserName"].toString();
         QString pass = jsonobjLogin["Password"].toString();
+        QString name = jsonobjLogin["Name"].toString();
+        QString balance = jsonobjLogin["Balance"].toString();
         qint32 accountNumber = QRandomGenerator::global()->bounded(1000, 10000);
-        bool check;
-        pass.toInt(&check);
-        if(check)
+        QJsonArray jsonarr=LoginData.readFile();
+        for(int i=0 ; i<jsonarr.size();i++)
         {
-            QJsonArray jsonarr=LoginData.readFile();
-            for(int i=0 ; i<jsonarr.size();i++)
+            QJsonObject jsonobj= jsonarr[i].toObject();
+            QString user = jsonobj["UserName"].toString();
+            qint32 password = jsonobj["Password"].toInt();
+            if(user == username && pass.toInt() == password)
             {
-                QJsonObject jsonobj= jsonarr[i].toObject();
-                QString user = jsonobj["UserName"].toString();
-                qint32 password = jsonobj["Password"].toInt();
-                if(user == username && pass.toInt() == password)
-                {
-                    sendMessage("User already exists!","Error");
-                    return;
-                }
-                if(accountNumber == jsonobj["Account Number"].toInt())
-                {
-                    accountNumber = QRandomGenerator::global()->bounded(1000, 10000);
-                    i=0;
-                }
+                sendMessage("User already exists!","Error");
+                return;
             }
-            QJsonObject jsonObject;
-            jsonObject["Auth"] = "User";
-            jsonObject["Password"] = pass.toInt();
-            jsonObject["UserName"] = username;
-            jsonObject["Account Number"] = accountNumber;
-            jsonObject["Available"] = false;
-            jsonarr.append(jsonObject);
-            LoginData.writeFile(jsonarr);
-            name = username;
-            AccNum = accountNumber;
-            this->pass=pass.toInt();
-            sendMessage("User","SuccessLogin");
+            if(accountNumber == jsonobj["Account Number"].toInt())
+            {
+                accountNumber = QRandomGenerator::global()->bounded(1000, 10000);
+                i=0;
+            }
         }
-        else
-            sendMessage("Invalid Password!","Error");
+        QJsonObject jsonObject;
+        jsonObject["Auth"] = "User";
+        jsonObject["Password"] = pass.toInt();
+        jsonObject["UserName"] = username;
+        jsonObject["Account Number"] = accountNumber;
+        jsonObject["Available"] = true;
+        jsonObject["Name"] = name;
+        jsonObject["Balance"] = balance.toInt();
+        jsonarr.append(jsonObject);
+        LoginData.writeFile(jsonarr);
+        name = username;
+        AccNum = accountNumber;
+        this->pass=pass.toInt();
+        sendMessage("Account Created :D","Success");
+
     }
 
     else if(Type == "GetAccNum")
@@ -183,18 +181,20 @@ void MyServerHandler::Operations(QString str,QString Type)
                     QJsonDocument jsondoc(jsonobj["transactions"].toArray());
                     QString data = jsondoc.toJson(QJsonDocument::Compact);
                     sendMessage(data,"History");
+                    return;
                 }
                 else
                 {
                     QJsonArray transactions=jsonobj["transactions"].toArray();
                     QJsonArray temp;
-                    for(int y=0 ; y<str.toInt(); y++)
+                    for(int y=0 ; y<str.toInt() && y<transactions.size() ; y++)
                     {
                         temp.append(transactions[y]);
                     }
                     QJsonDocument jsondoc(temp);
                     QString data = jsondoc.toJson(QJsonDocument::Compact);
                     sendMessage(data,"History");
+                    return;
                 }
 
             }
@@ -228,6 +228,7 @@ void MyServerHandler::Operations(QString str,QString Type)
                 else
                 {
                     sendMessage("Not enough balance!","Error");
+                    return;
                 }
 
             }
@@ -271,6 +272,7 @@ void MyServerHandler::Operations(QString str,QString Type)
                 else
                 {
                     sendMessage("Not enough balance!","Error");
+                    return;
                 }
 
             }
@@ -291,179 +293,167 @@ void MyServerHandler::Operations(QString str,QString Type)
         }
 
     }
-    // else if(Type == "GetDataBase")
-    // {
-    //     QJsonArray jsonarr = ProductsDB.readFile();
-    //     QJsonDocument doc;
-    //     doc.setArray(jsonarr);
-    //     QString data(doc.toJson());
-    //     sendMessage(data,"Data");
-    // }
 
+    else if(Type == "GetHistoryAdmin")
+    {
+        QJsonDocument ReceviedDoc = QJsonDocument::fromJson(str.toUtf8());
+        QJsonObject obj = ReceviedDoc.object();
+        qint32 count = obj["Count"].toInt();
+        qint32 accnum = obj["Account Number"].toInt();
+        QJsonArray jsonarr= HistoryDB.readFile();
+        if(count == 0 && accnum==0)
+        {
+            qDebug()<<count<<accnum;
+            QJsonDocument jsondoc(jsonarr);
+            QString data = jsondoc.toJson(QJsonDocument::Compact);
+            sendMessage(data,"AdminHistory");
+            return;
+        }
+        else if(count == 0)
+        {
+            qDebug()<<count<<accnum;
+            for (int i =0 ; i< jsonarr.size() ; i++)
+            {
+                QJsonObject jsonobj = jsonarr[i].toObject();
+                if(accnum == jsonobj["Account Number"].toInt())
+                {
+                    QJsonArray arr;
+                    arr.append(jsonobj);
+                    QJsonDocument jsondoc(arr);
+                    QString data = jsondoc.toJson(QJsonDocument::Compact);
+                    sendMessage(data,"AdminHistory");
+                    return;
+                }
+            }
+            sendMessage("Invalid Account Number!","Error");
+            return;
+        }
+        else if(accnum ==0)
+        {
+            qDebug()<<count<<accnum;
+            for (int i =0 ; i< jsonarr.size() ; i++)
+            {
+                QJsonObject jsonobj = jsonarr[i].toObject();
+                QJsonArray transactions=jsonobj["transactions"].toArray();
+                QJsonArray temp;
+                for(int y = 0 ; y<count && y<transactions.size() ; y++)
+                {
+                    temp.append(transactions[y]);
+                }
+                jsonobj["transactions"]=temp;
+                jsonarr[i]=jsonobj;
+            }
+            QJsonDocument jsondoc(jsonarr);
+            QString data = jsondoc.toJson(QJsonDocument::Compact);
+            sendMessage(data,"AdminHistory");
 
+        }
+        else
+        {
+            qDebug()<<count<<accnum;
+            for (int i =0 ; i< jsonarr.size() ; i++)
+            {
+                QJsonObject jsonobj = jsonarr[i].toObject();
+                if(accnum == jsonobj["Account Number"].toInt())
+                {
+                    QJsonArray transactions=jsonobj["transactions"].toArray();
+                    QJsonArray temp;
+                    for(int y = 0 ; y<count && y<transactions.size() ; y++)
+                    {
+                        temp.append(transactions[y]);
+                    }
+                    jsonobj["transactions"]=temp;
+                    QJsonArray arr;
+                    arr.append(jsonobj);
+                    QJsonDocument jsondoc(arr);
+                    QString data = jsondoc.toJson(QJsonDocument::Compact);
+                    sendMessage(data,"AdminHistory");
+                    return;
+                }
+            }
+            sendMessage("Invalid Account Number!","Error");
+        }
+    }
 
-    // else if(Type ==  "CheckOut")
-    // {
-    //     QJsonArray jsonarr=LoginData.readFile();
-    //     QString city;
-    //     QString gov;
-    //     QString dis;
-    //     QString building;
-    //     QString apt;
-    //     QString email;
-    //     qint32 number;
-    //     for(int i=0 ; i<jsonarr.size();i++)
-    //     {
-    //         QJsonObject jsonobj= jsonarr[i].toObject();
-    //         QString user = jsonobj["UserName"].toString();
-    //         qint32 password = jsonobj["Password"].toInt();
-    //         QString Authority = jsonobj["Auth"].toString();
-    //         if(user == name && this->pass == password)
-    //         {
-    //             city = jsonobj["City"].toString();
-    //             gov = jsonobj["Governorate"].toString();
-    //             dis = jsonobj["District"].toString();
-    //             building = jsonobj["Building no."].toString();
-    //             apt = jsonobj["Apt no."].toString();
-    //             email = jsonobj["Email"].toString();
-    //             number = jsonobj["Phone Number"].toInt();
-    //             QString data=city+"\n"+gov+"\n"+dis+"\n"+building+"\n"+apt+"\n"+email+"\n"+QString::number(number);
-    //             qDebug()<<data;
-    //             if(data=="\n\n\n\n\n\n0")
-    //             {
-    //                 sendMessage("No Address Found","Error");
-    //                 return;
-    //             }
-    //         }
-
-    //     }
-
-    //     QJsonArray jsonarrproducts = ProductsDB.readFile();
-    //     QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
-    //     QJsonArray jsonarrcheckout = doc.array();
-    //     // Iterate through each item in the checkout array
-    //     for (int i =0 ; i<jsonarrcheckout.size() ; i++) {
-    //         QJsonObject checkoutObject= jsonarrcheckout[i].toObject();
-    //         qDebug()<<"Before => "<<checkoutObject["id"].toInt();
-    //         qint32 checkoutId = checkoutObject["id"].toInt();
-    //         qint32 checkoutQuantity = checkoutObject["quantity"].toInt();
-
-    //         // Find the corresponding item in the product array by id
-    //         for (int i = 0; i < jsonarrproducts.size(); ++i) {
-    //             QJsonObject productObject = jsonarrproducts[i].toObject();
-    //             if (productObject["id"] == checkoutId) {
-    //                 // Subtract the quantity
-    //                 int productQuantity = productObject["quantity"].toInt();
-    //                 qDebug()<<"product quantity => "<<productQuantity;
-    //                 productObject["quantity"] = productQuantity - checkoutQuantity;
-    //                 // Update the product array with the modified object
-    //                 jsonarrproducts[i] = productObject;
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     ProductsDB.writeFile(jsonarrproducts);
-    //     sendMessage("","SuccessCheckout");
-
-    // }
-
-    //  Address save
-    // else if(Type ==  "Save_Address")
-    // {
-    //     QStringList list = str.split('\n');
-    //     QString city = list[0];
-    //     QString gov=list[1];
-    //     QString dis=list[2];
-    //     QString building=list[3];
-    //     QString apt = list[4];
-    //     QString email = list[5];
-    //     qint32 number = list[6].toInt();
-    //     qDebug()<<city<<gov<<dis<<building<<apt;
-    //     QJsonArray jsonarr=LoginData.readFile();
-    //     for(int i=0 ; i<jsonarr.size();i++)
-    //     {
-    //         QJsonObject jsonobj= jsonarr[i].toObject();
-    //         QString user = jsonobj["UserName"].toString();
-    //         qint32 password = jsonobj["Password"].toInt();
-    //         QString Authority = jsonobj["Auth"].toString();
-    //         if(user == name && pass == password)
-    //         {
-    //             jsonobj["City"]=city;
-    //             jsonobj["Governorate"]=gov;
-    //             jsonobj["District"]=dis;
-    //             jsonobj["Building no."]=building;
-    //             jsonobj["Apt no."]=apt;
-    //             jsonobj["Email"]=email;
-    //             jsonobj["Phone Number"]=number;
-    //             jsonarr[i]=jsonobj;
-    //             break;
-    //         }
-    //     }
-    //     LoginData.writeFile(jsonarr);
-    // }
-    // else if(Type ==  "Get_Address")
-    // {
-    //     QJsonArray jsonarr=LoginData.readFile();
-    //     for(int i=0 ; i<jsonarr.size();i++)
-    //     {
-    //         QJsonObject jsonobj= jsonarr[i].toObject();
-    //         QString user = jsonobj["UserName"].toString();
-    //         qint32 password = jsonobj["Password"].toInt();
-    //         QString Authority = jsonobj["Auth"].toString();
-    //         QString city = jsonobj["City"].toString();
-    //         QString gov = jsonobj["Governorate"].toString();
-    //         QString dis = jsonobj["District"].toString();
-    //         QString building = jsonobj["Building no."].toString();
-    //         QString apt = jsonobj["Apt no."].toString();
-    //         QString email = jsonobj["Email"].toString();
-    //         qint32 number = jsonobj["Phone Number"].toInt();
-    //         if(user == name && this->pass == password)
-    //         {
-    //             QString data=city+"\n"+gov+"\n"+dis+"\n"+building+"\n"+apt+"\n"+email+"\n"+QString::number(number);
-    //             sendMessage(data,"Address");
-    //         }
-
-    //     }
-    // }
-    // else if(Type ==  "Get_Name")
-    // {
-    //     sendMessage(name,"Name");
-    // }
-    // else if(Type == "New_Product")
-    // {
-    //     QJsonArray jsonarrproducts = ProductsDB.readFile();
-    //     QJsonDocument jsonDoc = QJsonDocument::fromJson(str.toUtf8());
-    //     QJsonObject newjsonobj = jsonDoc.object();
-    //     for(int i = 0 ; i<jsonarrproducts.size(); i++)
-    //     {
-    //         QJsonObject jsonobj = jsonarrproducts[i].toObject();
-    //         if(jsonobj["id"] == newjsonobj["id"])
-    //         {
-    //             sendMessage("ID already exists!","Error");
-    //             return;
-    //         }
-
-    //     }
-
-    //     jsonarrproducts.append(newjsonobj);
-    //     ProductsDB.writeFile(jsonarrproducts);
-    // }
-    // else if(Type == "Delete_Product")
-    // {
-    //     QJsonArray jsonarrproducts = ProductsDB.readFile();
-    //     QJsonArray newJsonArrProducts;
-    //     QJsonDocument jsonDoc = QJsonDocument::fromJson(str.toUtf8());
-    //     QJsonObject jsonobj = jsonDoc.object();
-    //     for(int i = 0; i<jsonarrproducts.size() ; i++ )
-    //     {
-    //         QJsonObject temp = jsonarrproducts[i].toObject();
-    //         if(( (temp["id"]!= jsonobj["id"]) && (temp["name"] != jsonobj["name"]) ) )
-    //         {
-    //             newJsonArrProducts.append(temp);
-    //         }
-    //     }
-    //     ProductsDB.writeFile(newJsonArrProducts);
-    // }
+    else if (Type == "GetAdminDB")
+    {
+        if(str.isEmpty())
+        {
+            QJsonDocument jsondoc(LoginData.readFile());
+            QString data = jsondoc.toJson(QJsonDocument::Compact);
+            sendMessage(data,"AdminDB");
+        }
+        else
+        {
+            qint32 accnum = str.toInt();
+            QJsonArray jsonarr = LoginData.readFile();
+            for(int i = 0 ;i<jsonarr.size();i++)
+            {
+                QJsonObject jsonobj = jsonarr[i].toObject();
+                if(accnum == jsonobj["Account Number"].toInt())
+                {
+                    QJsonArray newjsonarr;
+                    newjsonarr.append(jsonobj);
+                    QJsonDocument jsondocsend(newjsonarr);
+                    QString data = jsondocsend.toJson(QJsonDocument::Compact);
+                    sendMessage(data,"AdminDB");
+                    return;
+                }
+            }
+            sendMessage("Invalid Account Number!","Error");
+        }
+    }
+    else if( Type == "DeleteAccount")
+    {
+        qint32 accnum = str.toInt();
+        QJsonArray jsonarr = LoginData.readFile();
+        QJsonArray newarr;
+        for(int i=0 ; i<jsonarr.size(); i++)
+        {
+            QJsonObject jsonobj = jsonarr[i].toObject();
+            if(jsonobj["Account Number"].toInt() != accnum)
+            {
+                newarr.append(jsonobj);
+            }
+        }
+        if(newarr.size() == jsonarr.size())
+        {
+            sendMessage("Invalid Account Number!","Error");
+            return;
+        }
+        LoginData.writeFile(newarr);
+    }
+    else if(Type == "Update")
+    {
+        QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
+        QJsonObject jsonobjUpdate = doc.object();
+        QString username = jsonobjUpdate["UserName"].toString();
+        QString pass = jsonobjUpdate["Password"].toString();
+        QString name = jsonobjUpdate["Name"].toString();
+        QString balance = jsonobjUpdate["Balance"].toString();
+        QString Accnum = jsonobjUpdate["Account Number"].toString();
+        qint32 accnum = Accnum.toInt();
+        QJsonArray jsonarr = LoginData.readFile();
+        for(int i=0 ; i<jsonarr.size(); i++)
+        {
+            QJsonObject jsonobj = jsonarr[i].toObject();
+            if(jsonobj["Account Number"].toInt() == accnum)
+            {
+                if(!username.isEmpty())
+                    jsonobj["UserName"] = username;
+                if(!pass.isEmpty())
+                    jsonobj["Password"] = pass.toInt();
+                if(!name.isEmpty())
+                    jsonobj["Name"] = name;
+                if(!balance.isEmpty())
+                    jsonobj["Balance"] = balance.toInt();
+                jsonarr[i]=jsonobj;
+                LoginData.writeFile(jsonarr);
+                return;
+            }
+        }
+        sendMessage("Invalid Account Number!","Error");
+    }
     else
     {
         qDebug()<<"Type -> "<<Type<<" is unknown!..";

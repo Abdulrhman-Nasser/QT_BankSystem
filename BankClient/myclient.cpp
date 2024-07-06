@@ -103,6 +103,14 @@ void MyClient::onReadyRead()
         {
             emit success(realData);
         }
+        else if(Type == "AdminHistory")
+        {
+            emit AdminHistory(realData);
+        }
+        else if(Type == "AdminDB")
+        {
+            emit AdminDB(realData);
+        }
         // else if (Type == "Data")
         // {
         //     emit ProductsUpdate(realData);

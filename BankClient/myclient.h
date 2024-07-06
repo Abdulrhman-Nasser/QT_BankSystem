@@ -26,6 +26,8 @@ signals:
     void Balance(QString);
     void History(QString);
     void success(QString);
+    void AdminHistory(QString);
+    void AdminDB(QString);
 private slots:
     // void onConnection();
     // void onDisconnection();

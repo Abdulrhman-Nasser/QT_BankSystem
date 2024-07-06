@@ -28,6 +28,8 @@ public slots:
     void GetBalance(QString);
     void GetHistory(QString);
     void Success(QString);
+    void GetHistoryAdmin(QString);
+    void GetAdminDB(QString);
 private slots:
     void on_pb_Login_clicked();
 
@@ -54,6 +56,26 @@ private slots:
     void on_pb_UserTransaction_2_clicked();
 
     void on_pb_UserTransfer_clicked();
+
+    void on_pb_AdminHome_clicked();
+
+    void on_pb_AdminHistory_2_clicked();
+
+    void on_pb_AdminManagment_clicked();
+
+    void on_SW_Admin_currentChanged(int arg1);
+
+    void on_SW_User_currentChanged(int arg1);
+
+    void on_pb_AdminDB_clicked();
+
+    void on_pb_AdminHistory_clicked();
+
+    void on_pb_AdminViewDB_clicked();
+
+    void on_pb_delete_clicked();
+
+    void on_pb_Update_clicked();
 
 private:
     void setColor(QString BackColor,QString textColor);
