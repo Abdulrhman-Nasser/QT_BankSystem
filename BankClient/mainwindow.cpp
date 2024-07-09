@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::AdminHistory,this,&MainWindow::GetHistoryAdmin);
     connect(&client,&MyClient::success,this,&MainWindow::Success);
     connect(&client,&MyClient::AdminDB,this,&MainWindow::GetAdminDB);
-    client.ConnectToDevice("192.168.137.243",1234);
+    client.ConnectToDevice("192.168.153.182",1234);
 }
 
 MainWindow::~MainWindow()

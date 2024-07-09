@@ -1,7 +1,7 @@
 
 #include "myserverhandler.h"
 MyServerHandler::MyServerHandler(qint32 ID, QObject *parent)
-    :id(ID), QThread{parent}
+    :QThread{parent},id(ID),crypt(0x37769a6a5d4550d2),hashing(QCryptographicHash::Keccak_512)
 {
     LoginData.setPath(QDir::currentPath()+"/debug/LoginDB.json");
     HistoryDB.setPath(QDir::currentPath()+"/debug/HistoryDB.json");
@@ -18,10 +18,14 @@ void MyServerHandler::sendMessage(QString str,QString Type)
         jsonObject["file_size"]=str.toUtf8().size();
         jsonObject["file_data"]=str;
         QByteArray byteArray= QJsonDocument(jsonObject).toJson(QJsonDocument::Compact);
-        QString header = QString("JsonSize:%1/").arg(byteArray.size());
+        hashing.reset();
+        hashing.addData(byteArray);
+        QString header = QString("JsonSize:%1/%2/").arg(byteArray.size()).arg(QString(hashing.result()));
         byteArray.prepend(header.toUtf8());
-        qDebug()<<byteArray;
-        socket->write(byteArray);
+        QByteArray data = crypt.encryptToByteArray(byteArray);
+        qDebug()<<data;
+        qDebug()<<crypt.decryptToString(data);
+        socket->write(data);
     }
 }
 
@@ -541,15 +545,18 @@ void MyServerHandler::UpdateHistory(qint32 amount, QString username, qint32 From
 void MyServerHandler::onReadyRead()
 {
     QByteArray byteArray=socket->readAll();
-    QString str = QString(byteArray);
-    qint32 jsonSize=str.split("/")[0].split(":")[1].toInt();
-    QString data = str.right(jsonSize);
+    QString str = crypt.decryptToString(byteArray);
+    QStringList list = str.split("/");
+    QString hash = list[1];
+    QString data = list[2];
     QJsonDocument jsonDoc=QJsonDocument::fromJson(data.toUtf8());
     QJsonObject jsonObject = jsonDoc.object();
     QString Type = jsonObject["file_type"].toString();
     qint32 dataSize=jsonObject["file_size"].toInt();
     QString realData = jsonObject["file_data"].toString();
-    if(dataSize == realData.size())
+    hashing.reset();
+    hashing.addData(data.toUtf8());
+    if(dataSize == realData.size() && hash == hashing.result())
     {
         qDebug()<<"Received data from client "<<id<<" =>" <<realData;
         QJsonArray arr=Log.readFile();

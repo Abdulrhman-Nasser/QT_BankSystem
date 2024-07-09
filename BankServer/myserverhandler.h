@@ -13,7 +13,9 @@
 #include <QDir>
 #include <QDate>
 #include <QDateTime>
+#include <QCryptographicHash>
 #include "json.h"
+#include "simplecrypt.h"
 class MyServerHandler : public QThread
 {
     Q_OBJECT
@@ -35,6 +37,8 @@ private:
     QString name;
     qint32 pass;
     qint32 AccNum;
+    SimpleCrypt crypt;
+    QCryptographicHash hashing;
     // QThread interface
 protected:
     void run();

@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    myclient.cpp
+    myclient.cpp \
+    simplecrypt.cpp
 
 HEADERS += \
     mainwindow.h \
-    myclient.h
+    myclient.h \
+    simplecrypt.h
 
 FORMS += \
     mainwindow.ui

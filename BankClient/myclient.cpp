@@ -2,12 +2,13 @@
 #include "myclient.h"
 
 MyClient::MyClient(QObject *parent)
-    : QObject{parent}
+    : QObject{parent},crypt(0x37769a6a5d4550d2),hash(QCryptographicHash::Keccak_512)
 {
     // connect(&socket,&QTcpSocket::connected,this,&MyClient::onConnection);
     // connect(&socket,&QTcpSocket::disconnected,this,&MyClient::onDisconnection);
     // connect(&socket,&QTcpSocket::errorOccurred,this,&MyClient::onError);
     // connect(&socket,&QTcpSocket::stateChanged,this,&MyClient::onStateChanged);
+
     connect(&socket,&QTcpSocket::readyRead,this,&MyClient::onReadyRead);
 
 
@@ -53,26 +54,33 @@ void MyClient::WriteData(QString str,QString Type)
         jsonObject["file_type"]=Type;
         jsonObject["file_size"]=str.toUtf8().size();
         jsonObject["file_data"]=str;
-
         QByteArray byteArray= QJsonDocument(jsonObject).toJson(QJsonDocument::Compact);
-        QString header = QString("JsonSize:%1/").arg(byteArray.size());
+        hash.reset();
+        hash.addData(byteArray);
+        QString header = QString("JsonSize:%1/%2/").arg(byteArray.size()).arg(QString(hash.result()));
         byteArray.prepend(header.toUtf8());
-        socket.write(byteArray);
+        QByteArray data = crypt.encryptToByteArray(byteArray);
+        qDebug()<<data;
+        qDebug()<<crypt.decryptToString(data);
+        socket.write(data);
     }
 }
 
 void MyClient::onReadyRead()
 {
     QByteArray byteArray=socket.readAll();
-    QString str = QString(byteArray);
-    qint32 jsonSize=str.split("/")[0].split(":")[1].toInt();
-    QString data = str.right(jsonSize);
+    QString str = crypt.decryptToString(byteArray);
+    QStringList list = str.split("/");
+    QString hashed = list[1];
+    QString data = list[2];
     QJsonDocument jsonDoc=QJsonDocument::fromJson(data.toUtf8());
     QJsonObject jsonObject = jsonDoc.object();
+    QString Type = jsonObject["file_type"].toString();
     qint32 dataSize=jsonObject["file_size"].toInt();
     QString realData = jsonObject["file_data"].toString();
-    QString Type = jsonObject["file_type"].toString();
-    if(dataSize == realData.size())
+    hash.reset();
+    hash.addData(data.toUtf8());
+    if(dataSize == realData.size() && hashed == hash.result())
     {
         qDebug()<<"Received data from server =>" <<byteArray;
         if(Type == "SuccessLogin")

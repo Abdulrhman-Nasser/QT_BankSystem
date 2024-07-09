@@ -7,12 +7,16 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QCryptographicHash>
+#include "simplecrypt.h"
 class MyClient : public QObject
 {
     Q_OBJECT
     QString ip;
     qint32 port;
     QTcpSocket socket;
+    SimpleCrypt crypt;
+    QCryptographicHash hash;
 public:
     explicit MyClient(QObject *parent = nullptr);
     void Disconnect();

@@ -10,7 +10,8 @@ SOURCES += \
         json.cpp \
         main.cpp \
         myserver.cpp \
-        myserverhandler.cpp
+        myserverhandler.cpp \
+        simplecrypt.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,4 +21,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     json.h \
     myserver.h \
-    myserverhandler.h
+    myserverhandler.h \
+    simplecrypt.h
