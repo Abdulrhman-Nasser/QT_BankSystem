@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::AdminHistory,this,&MainWindow::GetHistoryAdmin);
     connect(&client,&MyClient::success,this,&MainWindow::Success);
     connect(&client,&MyClient::AdminDB,this,&MainWindow::GetAdminDB);
-    client.ConnectToDevice("192.168.1.12",1234);
+    client.ConnectToDevice("192.168.137.243",1234);
 }
 
 MainWindow::~MainWindow()
@@ -579,5 +579,11 @@ void MainWindow::on_pb_Update_clicked()
     QJsonDocument jsondoc(jsonobj);
     QString data = jsondoc.toJson(QJsonDocument::Compact);
     client.WriteData(data,"Update");
+}
+
+
+void MainWindow::on_pb_AdminBalance_clicked()
+{
+
 }
 

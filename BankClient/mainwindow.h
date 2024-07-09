@@ -77,6 +77,8 @@ private slots:
 
     void on_pb_Update_clicked();
 
+    void on_pb_AdminBalance_clicked();
+
 private:
     void setColor(QString BackColor,QString textColor);
     void ClearText();

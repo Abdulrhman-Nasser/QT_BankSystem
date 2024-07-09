@@ -12,6 +12,7 @@
 #include <QRandomGenerator>
 #include <QDir>
 #include <QDate>
+#include <QDateTime>
 #include "json.h"
 class MyServerHandler : public QThread
 {
@@ -30,13 +31,14 @@ private:
     QTcpSocket* socket;
     Json LoginData;
     Json HistoryDB;
-    // QThread interface
-protected:
-    void run();
-private:
+    Json Log;
     QString name;
     qint32 pass;
     qint32 AccNum;
+    // QThread interface
+protected:
+    void run();
+
 };
 
 #endif // MYSERVERHANDLER_H

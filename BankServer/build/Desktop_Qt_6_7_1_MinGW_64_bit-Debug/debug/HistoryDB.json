@@ -45,6 +45,11 @@
             {
                 "Amount": 2000,
                 "date": "06/07/2024"
+            },
+            {
+                "Amount": -100,
+                "To/From": 7467,
+                "date": "07/07/2024"
             }
         ]
     },
@@ -84,6 +89,16 @@
                 "Amount": 100,
                 "To/From": 6017,
                 "date": "06/07/2024"
+            }
+        ]
+    },
+    {
+        "Account Number": 7467,
+        "UserName": "Ahmed",
+        "transactions": [
+            {
+                "Amount": 100,
+                "date": "07/07/2024"
             }
         ]
     }

@@ -21,7 +21,7 @@
        <number>1</number>
       </property>
       <widget class="QWidget" name="Page0_login">
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>170</x>
@@ -65,7 +65,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>281</width>
+          <width>201</width>
           <height>461</height>
          </rect>
         </property>
@@ -148,7 +148,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>281</width>
+          <width>201</width>
           <height>461</height>
          </rect>
         </property>
@@ -162,14 +162,14 @@
        <widget class="QStackedWidget" name="SW_Admin">
         <property name="geometry">
          <rect>
-          <x>289</x>
+          <x>199</x>
           <y>19</y>
-          <width>411</width>
+          <width>501</width>
           <height>431</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="Page1_Home_2">
          <layout class="QGridLayout" name="gridLayout_7">
@@ -268,7 +268,7 @@
          </layout>
         </widget>
         <widget class="QWidget" name="Page3_DB">
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -455,7 +455,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>281</width>
+          <width>201</width>
           <height>461</height>
          </rect>
         </property>
@@ -471,7 +471,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>281</width>
+          <width>201</width>
           <height>461</height>
          </rect>
         </property>
@@ -542,9 +542,9 @@
        <widget class="QStackedWidget" name="SW_User">
         <property name="geometry">
          <rect>
-          <x>289</x>
+          <x>200</x>
           <y>19</y>
-          <width>411</width>
+          <width>501</width>
           <height>421</height>
          </rect>
         </property>
@@ -670,7 +670,7 @@
      <x>0</x>
      <y>0</y>
      <width>719</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

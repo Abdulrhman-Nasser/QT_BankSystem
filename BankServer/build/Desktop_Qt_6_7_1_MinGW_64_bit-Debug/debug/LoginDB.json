@@ -17,7 +17,7 @@
         "Account Number": 6017,
         "Auth": "User",
         "Available": true,
-        "Balance": 3063,
+        "Balance": 2963,
         "Name": "Khaled Mohammed",
         "Password": 5678,
         "UserName": "Khaled"
@@ -44,7 +44,7 @@
         "Account Number": 7467,
         "Auth": "User",
         "Available": true,
-        "Balance": 171278,
+        "Balance": 171378,
         "Name": "Ahmed Mohammed",
         "Password": 8888,
         "UserName": "Ahmed"

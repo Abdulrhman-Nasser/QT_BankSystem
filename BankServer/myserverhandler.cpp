@@ -5,6 +5,7 @@ MyServerHandler::MyServerHandler(qint32 ID, QObject *parent)
 {
     LoginData.setPath(QDir::currentPath()+"/debug/LoginDB.json");
     HistoryDB.setPath(QDir::currentPath()+"/debug/HistoryDB.json");
+    Log.setPath(QDir::currentPath()+"/debug/Log.json");
 
 }
 
@@ -176,7 +177,8 @@ void MyServerHandler::Operations(QString str,QString Type)
             QJsonObject jsonobj = jsonarr[i].toObject();
             if(jsonobj["UserName"].toString() == name && jsonobj["Account Number"].toInt() == AccNum)
             {
-                if(str.isEmpty())
+                QJsonArray transactions=jsonobj["transactions"].toArray();
+                if(str.isEmpty() || str.toInt()>transactions.size())
                 {
                     QJsonDocument jsondoc(jsonobj["transactions"].toArray());
                     QString data = jsondoc.toJson(QJsonDocument::Compact);
@@ -185,11 +187,13 @@ void MyServerHandler::Operations(QString str,QString Type)
                 }
                 else
                 {
-                    QJsonArray transactions=jsonobj["transactions"].toArray();
+
                     QJsonArray temp;
-                    for(int y=0 ; y<str.toInt() && y<transactions.size() ; y++)
+                    int z = transactions.size()-1;
+                    for(int y=0 ; y<str.toInt() ; y++)
                     {
-                        temp.append(transactions[y]);
+                        temp.append(transactions[z]);
+                        z--;
                     }
                     QJsonDocument jsondoc(temp);
                     QString data = jsondoc.toJson(QJsonDocument::Compact);
@@ -548,6 +552,14 @@ void MyServerHandler::onReadyRead()
     if(dataSize == realData.size())
     {
         qDebug()<<"Received data from client "<<id<<" =>" <<realData;
+        QJsonArray arr=Log.readFile();
+        QJsonObject obj;
+        obj["TimeStamp: "] = QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss");
+        obj["Operation: "]= Type;
+        obj["Data: "] = realData;
+        obj["Account Number: "]=AccNum;
+        arr.append(obj);
+        Log.writeFile(arr);
         Operations(realData,Type);
     }
     else
