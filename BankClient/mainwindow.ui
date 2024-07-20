@@ -169,7 +169,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="Page1_Home_2">
          <layout class="QGridLayout" name="gridLayout_7">
@@ -330,6 +330,20 @@
              <string>New User</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_10">
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="LE_NewBalance">
+               <property name="placeholderText">
+                <string>Balance</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLineEdit" name="LE_NewName">
+               <property name="placeholderText">
+                <string>Full name</string>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="0">
               <widget class="QLineEdit" name="LE_NewUserName">
                <property name="placeholderText">
@@ -344,21 +358,14 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="LE_NewName">
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="LE_NewEmail">
                <property name="placeholderText">
-                <string>Full name</string>
+                <string>Email</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="LE_NewBalance">
-               <property name="placeholderText">
-                <string>Balance</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
+             <item row="2" column="0">
               <widget class="QPushButton" name="pb_signup">
                <property name="text">
                 <string>SignUp</string>
@@ -374,20 +381,6 @@
              <string>Update User</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_15">
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="LE_UpdateName">
-               <property name="placeholderText">
-                <string>Full name</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="LE_UpdateUserName">
-               <property name="placeholderText">
-                <string>User Name</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1">
               <widget class="QLineEdit" name="LE_UpdatePassword">
                <property name="placeholderText">
@@ -403,9 +396,23 @@
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QPushButton" name="pb_Update">
-               <property name="text">
-                <string>Update</string>
+              <widget class="QLineEdit" name="LE_UpdateEmail">
+               <property name="placeholderText">
+                <string>Email</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="LE_UpdateUserName">
+               <property name="placeholderText">
+                <string>User Name</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLineEdit" name="LE_UpdateName">
+               <property name="placeholderText">
+                <string>Full name</string>
                </property>
               </widget>
              </item>
@@ -413,6 +420,13 @@
               <widget class="QLineEdit" name="LE_UpdateAccNum">
                <property name="placeholderText">
                 <string>Account Number</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" colspan="2">
+              <widget class="QPushButton" name="pb_Update">
+               <property name="text">
+                <string>Update</string>
                </property>
               </widget>
              </item>
@@ -670,7 +684,7 @@
      <x>0</x>
      <y>0</y>
      <width>719</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

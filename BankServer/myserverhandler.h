@@ -14,8 +14,10 @@
 #include <QDate>
 #include <QDateTime>
 #include <QCryptographicHash>
+#include <QtConcurrent>
 #include "json.h"
 #include "simplecrypt.h"
+#include "smtpclient.h"
 class MyServerHandler : public QThread
 {
     Q_OBJECT
@@ -37,6 +39,7 @@ private:
     QString name;
     qint32 pass;
     qint32 AccNum;
+    QString email;
     SimpleCrypt crypt;
     QCryptographicHash hashing;
     // QThread interface

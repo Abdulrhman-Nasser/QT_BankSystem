@@ -20,11 +20,9 @@ void MyServerHandler::sendMessage(QString str,QString Type)
         QByteArray byteArray= QJsonDocument(jsonObject).toJson(QJsonDocument::Compact);
         hashing.reset();
         hashing.addData(byteArray);
-        QString header = QString("JsonSize:%1/%2/").arg(byteArray.size()).arg(QString(hashing.result()));
+        QString header = QString("JsonSize:%1//?%2//?").arg(byteArray.size()).arg(QString(hashing.result()));
         byteArray.prepend(header.toUtf8());
         QByteArray data = crypt.encryptToByteArray(byteArray);
-        qDebug()<<data;
-        qDebug()<<crypt.decryptToString(data);
         socket->write(data);
     }
 }
@@ -61,6 +59,7 @@ void MyServerHandler::Operations(QString str,QString Type)
                 name.clear();
                 pass=0;
                 AccNum = 0;
+                email.clear();
                 return;
             }
         }
@@ -156,19 +155,42 @@ void MyServerHandler::Operations(QString str,QString Type)
     {
 
         QJsonArray jsonarr=LoginData.readFile();
-        for(int i=0 ; i<jsonarr.size();i++)
+        if (str.isEmpty())
         {
-            QJsonObject jsonobj= jsonarr[i].toObject();
-            QString user = jsonobj["UserName"].toString();
-            qint32 password = jsonobj["Password"].toInt();
-            if(user == name && password==pass)
+            for(int i=0 ; i<jsonarr.size();i++)
             {
-                qint32 balance = jsonobj["Balance"].toInt();
-                sendMessage(QString::number(balance),"Balance");
+                QJsonObject jsonobj= jsonarr[i].toObject();
+                QString user = jsonobj["UserName"].toString();
+                qint32 password = jsonobj["Password"].toInt();
+                if(user == name && pass == password)
+                {
+                    sendMessage(QString::number(jsonobj["Balance"].toInt()),"Balance");
+                    return;
+                }
+            }
+            sendMessage("Account not found!","Error");
+        }
+        else
+        {
+            QString accNums;
+            for(int i=0 ; i<jsonarr.size();i++)
+            {
+                QJsonObject jsonobj= jsonarr[i].toObject();
+                QString accnum = QString::number(jsonobj["Account Number"].toInt());
+                QString Authority = jsonobj["Auth"].toString();
+                if(accnum == str && Authority=="User")
+                {
+                    accNums.append(QString::number(jsonobj["Balance"].toInt()));
+                }
+            }
+            if(accNums.isEmpty())
+            {
+                sendMessage("Account not found!","Error");
                 return;
             }
+            sendMessage(accNums,"BalanceAdmin");
+
         }
-        sendMessage("No Account!","Error");
 
 
     }
@@ -229,6 +251,11 @@ void MyServerHandler::Operations(QString str,QString Type)
                     jsonobj["Balance"]=temp;
                     jsonarr[i]=jsonobj;
                     LoginData.writeFile(jsonarr);
+                    QString username = "abdulrhman312n@gmail.com";
+                    QString password = "azot zgyl przy eheb";  // Consider using an App Password if you have 2-Step Verification enabled
+                    SmtpClient *client = new SmtpClient("smtp.gmail.com", 465, username, password);
+                    QObject::connect(client, &SmtpClient::deletePointer, client, &SmtpClient::deleteLater);
+                    client->sendEmail(username, "abdulrhman_n@yahoo.com", "Transaction", "A transaction with made from your account with amount of "+QString::number(amount));
                     sendMessage("Transaction Completed successfully","Success");
                     UpdateHistory(amount,name,AccNum);
                     return;
@@ -293,6 +320,11 @@ void MyServerHandler::Operations(QString str,QString Type)
             UpdateHistory(amount*-1,name,AccNum,QString::number(obj["Account Number"].toInt()));
             UpdateHistory(amount,obj["UserName"].toString(),obj["Account Number"].toInt(),QString::number(AccNum));
             LoginData.writeFile(jsonarr);
+            QString username = "abdulrhman312n@gmail.com";
+            QString password = "azot zgyl przy eheb";  // Consider using an App Password if you have 2-Step Verification enabled
+            SmtpClient *client = new SmtpClient("smtp.gmail.com", 465, username, password);
+            QObject::connect(client, &SmtpClient::deletePointer, client, &SmtpClient::deleteLater);
+            client->sendEmail(username, "abdulrhman_n@yahoo.com", "Transfer", "A transfer was made from your account with amount of "+QString::number(amount));
             sendMessage("Transfer Completed successfully","Success");
         }
         else
@@ -440,6 +472,7 @@ void MyServerHandler::Operations(QString str,QString Type)
         QString name = jsonobjUpdate["Name"].toString();
         QString balance = jsonobjUpdate["Balance"].toString();
         QString Accnum = jsonobjUpdate["Account Number"].toString();
+        QString Email = jsonobjUpdate["Email"].toString();
         qint32 accnum = Accnum.toInt();
         QJsonArray jsonarr = LoginData.readFile();
         for(int i=0 ; i<jsonarr.size(); i++)
@@ -455,6 +488,8 @@ void MyServerHandler::Operations(QString str,QString Type)
                     jsonobj["Name"] = name;
                 if(!balance.isEmpty())
                     jsonobj["Balance"] = balance.toInt();
+                if(!Email.isEmpty())
+                    jsonobj["Email"] = Email;
                 jsonarr[i]=jsonobj;
                 LoginData.writeFile(jsonarr);
                 return;
@@ -479,6 +514,7 @@ void MyServerHandler::Login(QString username, qint32 pass)
         qint32 password = jsonobj["Password"].toInt();
         qint32 accNum = jsonobj["Account Number"].toInt();
         QString Authority = jsonobj["Auth"].toString();
+        QString Email = jsonobj["Email"].toString();
         bool available = jsonobj["Available"].toBool();
         if(user == username && pass == password)
         {
@@ -489,6 +525,7 @@ void MyServerHandler::Login(QString username, qint32 pass)
                 LoginData.writeFile(jsonarr);
                 qDebug()<<"Login success with authority -> "<<Authority;
                 name = username;
+                email = Email;
                 this->pass=pass;
                 AccNum = accNum;
                 sendMessage(Authority,"SuccessLogin");
@@ -546,7 +583,7 @@ void MyServerHandler::onReadyRead()
 {
     QByteArray byteArray=socket->readAll();
     QString str = crypt.decryptToString(byteArray);
-    QStringList list = str.split("/");
+    QStringList list = str.split("//?");
     QString hash = list[1];
     QString data = list[2];
     QJsonDocument jsonDoc=QJsonDocument::fromJson(data.toUtf8());
@@ -585,6 +622,8 @@ void MyServerHandler::onDisconnected()
         Operations("","SignOut");
     }
 }
+
+
 
 void MyServerHandler::run()
 {

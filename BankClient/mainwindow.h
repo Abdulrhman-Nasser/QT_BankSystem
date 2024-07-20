@@ -30,6 +30,7 @@ public slots:
     void Success(QString);
     void GetHistoryAdmin(QString);
     void GetAdminDB(QString);
+    void GetAdminBalance(QString);
 private slots:
     void on_pb_Login_clicked();
 

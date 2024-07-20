@@ -1,0 +1,56 @@
+[
+    {
+        "Account Number": null,
+        "Auth": "Admin",
+        "Available": true,
+        "Password": 1234,
+        "UserName": "Nasser"
+    },
+    {
+        "Account Number": null,
+        "Auth": "Admin",
+        "Available": true,
+        "Password": 5679,
+        "UserName": "Khaled"
+    },
+    {
+        "Account Number": 6017,
+        "Auth": "User",
+        "Available": true,
+        "Balance": 296264,
+        "Email": "abdulrhman_n@yahoo.com",
+        "Name": "Khaled Ahmed",
+        "Password": 6789,
+        "UserName": "Khaled"
+    },
+    {
+        "Account Number": 3618,
+        "Auth": "User",
+        "Available": true,
+        "Balance": 4932,
+        "Email": "abdulrhman_n@yahoo.com",
+        "Name": "Ahmed Taha",
+        "Password": 91011,
+        "UserName": "Ahmed"
+    },
+    {
+        "Account Number": 4821,
+        "Auth": "User",
+        "Available": true,
+        "Balance": 157053,
+        "Email": "abdulrhman_n@yahoo.com",
+        "Name": "Ehab Saleh",
+        "Password": 1234,
+        "UserName": "Ehab"
+    },
+    {
+        "Account Number": 7467,
+        "Auth": "User",
+        "Available": true,
+        "Balance": 171378,
+        "Email": "abdulrhman_n@yahoo.com",
+        "Name": "Ahmed Mohammed",
+        "Password": 8888,
+        "UserName": "Ahmed"
+    }
+]

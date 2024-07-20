@@ -57,7 +57,7 @@ void MyClient::WriteData(QString str,QString Type)
         QByteArray byteArray= QJsonDocument(jsonObject).toJson(QJsonDocument::Compact);
         hash.reset();
         hash.addData(byteArray);
-        QString header = QString("JsonSize:%1/%2/").arg(byteArray.size()).arg(QString(hash.result()));
+        QString header = QString("JsonSize:%1//?%2//?").arg(byteArray.size()).arg(QString(hash.result()));
         byteArray.prepend(header.toUtf8());
         QByteArray data = crypt.encryptToByteArray(byteArray);
         qDebug()<<data;
@@ -70,7 +70,7 @@ void MyClient::onReadyRead()
 {
     QByteArray byteArray=socket.readAll();
     QString str = crypt.decryptToString(byteArray);
-    QStringList list = str.split("/");
+    QStringList list = str.split("//?");
     QString hashed = list[1];
     QString data = list[2];
     QJsonDocument jsonDoc=QJsonDocument::fromJson(data.toUtf8());
@@ -102,6 +102,10 @@ void MyClient::onReadyRead()
         else if (Type == "Balance")
         {
             emit Balance(realData);
+        }
+        else if (Type == "BalanceAdmin")
+        {
+            emit BalanceAdmin(realData);
         }
         else if(Type == "History")
         {

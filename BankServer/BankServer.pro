@@ -1,5 +1,7 @@
 QT = core
 QT+=network
+QT += core network
+QT += concurrent
 CONFIG += c++17 cmdline
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -11,7 +13,8 @@ SOURCES += \
         main.cpp \
         myserver.cpp \
         myserverhandler.cpp \
-        simplecrypt.cpp
+        simplecrypt.cpp \
+        smtpclient.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -22,4 +25,5 @@ HEADERS += \
     json.h \
     myserver.h \
     myserverhandler.h \
-    simplecrypt.h
+    simplecrypt.h \
+    smtpclient.h

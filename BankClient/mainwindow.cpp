@@ -17,7 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::AdminHistory,this,&MainWindow::GetHistoryAdmin);
     connect(&client,&MyClient::success,this,&MainWindow::Success);
     connect(&client,&MyClient::AdminDB,this,&MainWindow::GetAdminDB);
-    client.ConnectToDevice("192.168.153.182",1234);
+    connect(&client,&MyClient::BalanceAdmin,this,&MainWindow::GetAdminBalance);
+    client.ConnectToDevice("192.168.1.8",1234);
 }
 
 MainWindow::~MainWindow()
@@ -97,11 +98,12 @@ void MainWindow::on_pb_signup_clicked()
     QString pass = ui->LE_NewPassword->text();
     QString name = ui->LE_NewName->text();
     QString balance = ui->LE_NewBalance->text();
+    QString email = ui->LE_NewEmail->text();
     bool CheckBalance,CheckPass;
     balance.toInt(&CheckBalance);
     pass.toInt(&CheckPass);
     //qDebug()<<CheckBalance<<CheckPass;
-    if(UserName.isEmpty() || pass.isEmpty() || name.isEmpty() || balance.isEmpty() || !CheckBalance || !CheckPass)
+    if(UserName.isEmpty() || pass.isEmpty() || name.isEmpty() || balance.isEmpty() || email.isEmpty() || !CheckBalance || !CheckPass)
     {
         QMessageBox::warning(nullptr,"Warning","Enter valid data");
         return;
@@ -110,6 +112,7 @@ void MainWindow::on_pb_signup_clicked()
     jsonobj["Password"]=pass;
     jsonobj["Name"]=name;
     jsonobj["Balance"]=balance;
+    jsonobj["Email"]=email;
     QJsonDocument jsondoc(jsonobj);
     QString data = jsondoc.toJson(QJsonDocument::Compact);
     client.WriteData(data,"Signup");
@@ -414,13 +417,23 @@ void MainWindow::GetAdminDB(QString data)
     }
 }
 
+void MainWindow::GetAdminBalance(QString balance)
+{
+    ui->L_AdminBalance->setText(balance);
+}
+
 void MainWindow::on_pb_UserHistory_2_clicked()
 {
     QString History = ui->LE_UserHistoryCount->text();
     bool Check;
     History.toInt(&Check);
     if (Check || History.isEmpty())
-        client.WriteData(History,"GetHistory");
+    {
+        if(History.toInt()>=0)
+            client.WriteData(History,"GetHistory");
+        else
+            QMessageBox::warning(nullptr,"Warning","Enter valid count number");
+    }
     else
         QMessageBox::warning(nullptr,"Warning","Enter valid count number");
 }
@@ -506,7 +519,7 @@ void MainWindow::on_pb_AdminHistory_clicked()
     bool CheckAccNum;
     qint32 countnum=count.toInt(&CheckCount);
     qint32 accnum=AccNum.toInt(&CheckAccNum);
-    if( (CheckCount || count.isEmpty()) && (CheckAccNum || AccNum.isEmpty()) )
+    if( (CheckCount || count.isEmpty()) && (CheckAccNum || AccNum.isEmpty()) && countnum>=0 )
     {
         QJsonObject jsonobj;
         jsonobj["Count"]=countnum;
@@ -531,6 +544,10 @@ void MainWindow::on_pb_AdminViewDB_clicked()
     {
         client.WriteData(accnum,"GetAdminDB");
     }
+    else
+    {
+        QMessageBox::warning(nullptr,"Warning","Enter valid Account Number");
+    }
 }
 
 
@@ -539,7 +556,7 @@ void MainWindow::on_pb_delete_clicked()
     QString accnum = ui->LE_DeleteAccNum->text();
     bool Check;
     accnum.toInt(&Check);
-    if(!Check)
+    if(!Check || accnum=="0")
     {
         QMessageBox::warning(nullptr,"Warning","Enter a valid Account Number");
         return;
@@ -556,6 +573,7 @@ void MainWindow::on_pb_Update_clicked()
     QString name = ui->LE_UpdateName->text();
     QString balance = ui->LE_UpdateBalance->text();
     QString accnum = ui->LE_UpdateAccNum->text();
+    QString email = ui->LE_UpdateEmail->text();
     bool CheckBalance,CheckPass,CheckAccNum;
     balance.toInt(&CheckBalance);
     pass.toInt(&CheckPass);
@@ -576,6 +594,7 @@ void MainWindow::on_pb_Update_clicked()
     jsonobj["Name"]=name;
     jsonobj["Balance"]=balance;
     jsonobj["Account Number"]=accnum;
+    jsonobj["Email"] = email;
     QJsonDocument jsondoc(jsonobj);
     QString data = jsondoc.toJson(QJsonDocument::Compact);
     client.WriteData(data,"Update");
@@ -584,6 +603,12 @@ void MainWindow::on_pb_Update_clicked()
 
 void MainWindow::on_pb_AdminBalance_clicked()
 {
-
+    QString accName = ui->LE_accNumBalance->text();
+    if(accName.isEmpty())
+    {
+        QMessageBox::critical(nullptr,"Error","Enter account number");
+        return;
+    }
+    client.WriteData(accName,"GetBalance");
 }
 

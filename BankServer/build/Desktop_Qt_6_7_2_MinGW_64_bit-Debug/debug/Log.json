@@ -1,0 +1,1462 @@
+[
+    {
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07.07.2024 11:49:31"
+    },
+    {
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07.07.2024 11:50:36"
+    },
+    {
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "07.07.2024 11:50:51"
+    },
+    {
+        "Data: ": "1234",
+        "Operation: ": "DeleteAccount",
+        "TimeStamp: ": "07.07.2024 11:51:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 11:52:41"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "07/07/2024 11:52:48"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "07/07/2024 11:53:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 11:53:12"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 11:53:16"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 11:53:25"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 11:55:52"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 11:55:56"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 11:55:59"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:01:56"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:01:58"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:02:57"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:03:00"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "3",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:03:07"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:03:46"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:03:57"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:03:59"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:04:03"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:07:13"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:07:18"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:07:20"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "3",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:07:26"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:08:05"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:08:07"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "3",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:08:14"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "3",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:08:16"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:13:55"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "07/07/2024 12:14:04"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "07/07/2024 12:14:05"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:14:06"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "07/07/2024 12:14:10"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "{\"Account Number\":7467,\"Amount\":100}",
+        "Operation: ": "DoTransfer",
+        "TimeStamp: ": "07/07/2024 12:14:39"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "07/07/2024 12:14:48"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:14:53"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "07/07/2024 12:14:59"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:21:53"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:23:02"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "07/07/2024 12:24:32"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "07/07/2024 12:24:47"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "07/07/2024 12:26:52"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "07/07/2024 12:27:06"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ahmed",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "07/07/2024 12:29:21"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "07/07/2024 12:30:07"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 12:38:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 12:39:35"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 12:40:47"
+    },
+    {
+        "Account Number: ": 6881396,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 12:51:36"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 12:51:57"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "09/07/2024 13:01:43"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "09/07/2024 13:01:45"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"123\",\"UserName\":\"asds\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:04:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:04:44"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:05:03"
+    },
+    {
+        "Account Number: ": 2949236,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:16:40"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:16:48"
+    },
+    {
+        "Account Number: ": 2949236,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:17:42"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:17:49"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:17:55"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:18:14"
+    },
+    {
+        "Account Number: ": 642,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:22:56"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "132",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:23:00"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "asda",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:23:03"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:23:07"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:23:11"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:31"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:31"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:31"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:48"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:23:51"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:24:01"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:25:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:28:41"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:30:07"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:31:56"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:37:37"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:37:38"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":4821,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:37:45"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:37:49"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:37:53"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 12:37:56"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 12:38:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 12:38:10"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:39:25"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ehab",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:39:34"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:39:37"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 12:39:39"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 12:39:41"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"ehab\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:39:46"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Ehab\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 12:39:50"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 12:39:51"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:39:52"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 12:39:53"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 12:39:57"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "200",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 12:40:04"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 12:40:06"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:40:14"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "200",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 12:40:20"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 12:40:22"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 12:40:30"
+    },
+    {
+        "Account Number: ": 4821,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 12:40:34"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"asd123\",\"UserName\":\"asdd\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:17:57"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"123123\",\"UserName\":\"asdd\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:18:03"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:18:48"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 20:18:51"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:19:00"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Balance\":\"1234\",\"Name\":\"Abdulrhman\",\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Signup",
+        "TimeStamp: ": "20/07/2024 20:19:22"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Balance\":\"23232\",\"Name\":\"Abdulrhman\",\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Signup",
+        "TimeStamp: ": "20/07/2024 20:19:25"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Balance\":\"23232\",\"Name\":\"Abdulrhman\",\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Signup",
+        "TimeStamp: ": "20/07/2024 20:19:32"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "0",
+        "Operation: ": "DeleteAccount",
+        "TimeStamp: ": "20/07/2024 20:19:51"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "0",
+        "Operation: ": "DeleteAccount",
+        "TimeStamp: ": "20/07/2024 20:20:13"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:21:49"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "1",
+        "Operation: ": "DeleteAccount",
+        "TimeStamp: ": "20/07/2024 20:21:55"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 20:22:15"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:22:22"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "asdasd",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:22:27"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "asdas",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:22:31"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Khaled",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:22:37"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "Ahmed",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:22:46"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "3618",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 20:22:54"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "0",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 20:23:03"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:23:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":3618,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:23:11"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":3618,\"Count\":1}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:23:17"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":3618,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:23:34"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:24:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "4821",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:24:18"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "482112",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:24:28"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "482112",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:24:58"
+    },
+    {
+        "Account Number: ": 1092641897,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:25:25"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:25:26"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:25:34"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":\"6017\",\"Balance\":\"\",\"Name\":\"\",\"Password\":\"\",\"UserName\":\"\"}",
+        "Operation: ": "Update",
+        "TimeStamp: ": "20/07/2024 20:26:38"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":\"6017\",\"Balance\":\"\",\"Name\":\"Khaled Ahmed\",\"Password\":\"\",\"UserName\":\"\"}",
+        "Operation: ": "Update",
+        "TimeStamp: ": "20/07/2024 20:26:48"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":\"6017\",\"Balance\":\"296300\",\"Name\":\"Khaled Ahmed\",\"Password\":\"\",\"UserName\":\"\"}",
+        "Operation: ": "Update",
+        "TimeStamp: ": "20/07/2024 20:26:58"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":\"6017\",\"Balance\":\"296300\",\"Name\":\"Khaled Ahmed\",\"Password\":\"6789\",\"UserName\":\"\"}",
+        "Operation: ": "Update",
+        "TimeStamp: ": "20/07/2024 20:27:09"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "GetAdminDB",
+        "TimeStamp: ": "20/07/2024 20:27:37"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:27:39"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 20:27:41"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"5678\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:27:45"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:27:49"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:27:52"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 20:27:53"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:27:55"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 20:27:55"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetAccNum",
+        "TimeStamp: ": "20/07/2024 20:27:56"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetBalance",
+        "TimeStamp: ": "20/07/2024 20:27:56"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:27:58"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:05"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:10"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:15"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:16"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:16"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:17"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:17"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-1",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:28:17"
+    },
+    {
+        "Account Number: ": 2949236,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:30:01"
+    },
+    {
+        "Account Number: ": 842080308,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:30:27"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "GetHistory",
+        "TimeStamp: ": "20/07/2024 20:30:29"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "{\"Account Number\":3618,\"Amount\":100}",
+        "Operation: ": "DoTransfer",
+        "TimeStamp: ": "20/07/2024 20:30:46"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "{\"Account Number\":3618,\"Amount\":100}",
+        "Operation: ": "DoTransfer",
+        "TimeStamp: ": "20/07/2024 20:30:59"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "{\"Account Number\":3618,\"Amount\":296102}",
+        "Operation: ": "DoTransfer",
+        "TimeStamp: ": "20/07/2024 20:31:10"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:31:23"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "-296102",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:31:28"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "",
+        "Operation: ": "SignOut",
+        "TimeStamp: ": "20/07/2024 20:31:46"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:31:50"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:32:00"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":-1}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:32:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":1}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:32:18"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":-1}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:32:47"
+    },
+    {
+        "Account Number: ": 1546399802,
+        "Data: ": "{\"Password\":\"1234\",\"UserName\":\"Nasser\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:34:44"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Account Number\":0,\"Count\":0}",
+        "Operation: ": "GetHistoryAdmin",
+        "TimeStamp: ": "20/07/2024 20:34:46"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:53:08"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:53:12"
+    },
+    {
+        "Account Number: ": 7274612,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:55:14"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:55:17"
+    },
+    {
+        "Account Number: ": 2949236,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:56:21"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:56:24"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:57:33"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 20:58:28"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 20:58:30"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:01:07"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:01:10"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:03:13"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:03:22"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:03:25"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:03:34"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:04:54"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:06:39"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:06:41"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "20",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:06:49"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:10:12"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "10",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:10:15"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "10",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:10:22"
+    },
+    {
+        "Account Number: ": 2949236,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:11:41"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:11:43"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:11:50"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:12:55"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:12:57"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:13:04"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:15:26"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:15:28"
+    },
+    {
+        "Account Number: ": -589998365,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:16:00"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:16:01"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:16:09"
+    },
+    {
+        "Account Number: ": 6226004,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:16:59"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:17:01"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:18:17"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:18:19"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:20:38"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:20:40"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:20:46"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:28:41"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:28:43"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:34:24"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:34:26"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:38:14"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:38:15"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:38:22"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:45:49"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:45:51"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:45:59"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:46:00"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:46:07"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:49:56"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:49:58"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:50:21"
+    },
+    {
+        "Account Number: ": 5046367,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 21:51:44"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 21:51:46"
+    },
+    {
+        "Account Number: ": 7274612,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 22:01:03"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 22:01:05"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 22:05:58"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "1",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 22:06:00"
+    },
+    {
+        "Account Number: ": 0,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 22:07:19"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "2",
+        "Operation: ": "DoTransaction",
+        "TimeStamp: ": "20/07/2024 22:07:21"
+    },
+    {
+        "Account Number: ": 7667810,
+        "Data: ": "{\"Password\":\"6789\",\"UserName\":\"Khaled\"}",
+        "Operation: ": "Login",
+        "TimeStamp: ": "20/07/2024 22:09:29"
+    },
+    {
+        "Account Number: ": 6017,
+        "Data: ": "{\"Account Number\":3618,\"Amount\":100}",
+        "Operation: ": "DoTransfer",
+        "TimeStamp: ": "20/07/2024 22:09:41"
+    }
+]
